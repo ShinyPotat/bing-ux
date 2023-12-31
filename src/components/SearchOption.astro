@@ -1,0 +1,25 @@
+<li>
+  <a
+    data-search-option
+    class={`${Astro.props.class} uppercase font-semibold`}
+    href="#"
+  >
+    <slot />
+  </a>
+</li>
+<script>
+  // Buscar todas las opciones
+  const searchOptions = document.querySelectorAll("[data-search-option]");
+
+  // Añadir event listeners a cada opción
+  searchOptions.forEach((searchOption) => {
+    searchOption.addEventListener("click", (event) => {
+      const classTailwind = "border-b-2";
+      searchOptions.forEach((searchOption) => {
+        searchOption.classList.remove(classTailwind);
+      });
+      const clicked = event.target;
+      clicked.classList.add(classTailwind);
+    });
+  });
+</script>
