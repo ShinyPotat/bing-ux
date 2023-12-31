@@ -1,0 +1,11 @@
+---
+const { title, image, time } = Astro.props.data;
+---
+
+<div class="flex flex-row justify-between gap-2 border-b-2 py-3">
+  <div class="">
+    <h2 class="text-black font-bold text-pretty text-xl"><a href="#">{title}</a></h2>
+    <span class="text-black/40 font-semibold text-sm">{time}</span>
+  </div>
+  <img class="rounded max-h-24 aspect-video" src={image} alt=`Imagen para la noticia ${title}` />
+</div>
