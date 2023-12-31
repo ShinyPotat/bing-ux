@@ -1,0 +1,30 @@
+---
+import Bing from "../icons/Bing.astro";
+import Search from "../icons/Search.astro";
+import SearchOption from "../components/SearchOption.astro";
+---
+
+<section class="flex flex-row gap-x-3 mb-20 max-w-2xl">
+  <Bing class="size-32 md:size-40" />
+  <div class="flex flex-col justify-around w-full">
+    <h1 class="text-5xl md:text-6xl mb-5">Bing</h1>
+    <div class="relative flex justify-end items-center mb-4">
+      <Search
+        class="pointer-events-none absolute size-5 text-teal-900 right-3"
+      />
+      <input
+        type="text"
+        class="rounded-full w-full p-1 text-black indent-2 border-2 border-teal-900 outline-none shadow-lg shadow-teal-900/90"
+      />
+    </div>
+    <ul
+      class="flex items-center justify-around gap-x-3 md:gap-x-10 text-xs md:text-base"
+    >
+      <SearchOption class="border-b-2">Todo</SearchOption>
+      <SearchOption>Chat</SearchOption>
+      <SearchOption>Imágenes</SearchOption>
+      <SearchOption>Videos</SearchOption>
+      <SearchOption>Noticias</SearchOption>
+    </ul>
+  </div>
+</section>

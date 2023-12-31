@@ -1,43 +1,12 @@
 ---
-import SearchOption from "../components/SearchOption.astro";
-import Bing from "../icons/Bing.astro";
-import Search from "../icons/Search.astro";
+import SearchSection from "../components/SearchSection.astro";
 import Layout from "../layouts/Layout.astro";
+import SearchBottom from "../components/SearchBottom.astro";
 ---
 
 <Layout title="Microsoft Bing">
-  <main>
-    <section class="flex flex-row mb-20">
-      <Bing class="size-32 md:size-40" />
-      <div class="flex flex-col justify-around gap-y-2">
-        <h1 class="text-5xl md:text-7xl font-semibold mb-8">Bing</h1>
-        <div class="relative flex justify-end items-center mb-4">
-          <Search
-            class="pointer-events-none absolute size-5 text-teal-900 right-3"
-          />
-          <input type="text" class="rounded-full w-full p-1 text-black indent-2 border-2 border-teal-900 outline-none shadow-lg shadow-teal-900/90" />
-        </div>
-        <ul class="flex gap-x-1 md:gap-x-16">
-          <SearchOption class="border-b-2">
-            Todo
-          </SearchOption>
-          <SearchOption>
-            Chat
-          </SearchOption>
-          <SearchOption>
-            Imágenes
-          </SearchOption>
-          <SearchOption>
-            Videos
-          </SearchOption>
-          <SearchOption>
-            Noticias
-          </SearchOption>
-        </ul>
-      </div>
-    </section>
-    <section class="text-center">
-      <h1>Noticias</h1>
-    </section>
+  <main class="flex flex-col items-center w-full px-3 md:px-7">
+    <SearchSection />
+    <SearchBottom />
   </main>
 </Layout>
