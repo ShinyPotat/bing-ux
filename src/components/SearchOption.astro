@@ -14,12 +14,14 @@
   // Añadir event listeners a cada opción
   searchOptions.forEach((searchOption) => {
     searchOption.addEventListener("click", (event) => {
-      const classTailwind = "border-b-2";
-      searchOptions.forEach((searchOption) => {
-        searchOption.classList.remove(classTailwind);
-      });
-      const clicked = event.target;
-      clicked.classList.add(classTailwind);
+      const { target } = event;
+      if (target instanceof HTMLElement) {
+        const classTailwind = "border-b-2";
+        searchOptions.forEach((searchOption) => {
+          searchOption.classList.remove(classTailwind);
+        });
+        target.classList.add(classTailwind);
+      }
     });
   });
 </script>
