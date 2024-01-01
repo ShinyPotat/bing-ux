@@ -1,4 +1,5 @@
 ---
+import Categorie from "./Categorie.astro";
 import New from "./New.astro";
 
 const CATEGORIES = [
@@ -25,40 +26,27 @@ const CATEGORIES = [
 ];
 
 const NEWS = [
-    {
-        title: "Camino a un planeta mejor: las buenas noticias sobre medio ambiente de 2023",
-        image: "/forest.webp",
-        time: "hace 8 horas"
-    },
-    {
-        title: "Guerra Rusia - Ucrania, en directo: últimas noticias del conflicto",
-        image: "/war.webp",
-        time: "hace 9 horas"
-    }
-]
+  {
+    title:
+      "Camino a un planeta mejor: las buenas noticias sobre medio ambiente de 2023",
+    image: "/forest.webp",
+    time: "hace 8 horas",
+  },
+  {
+    title: "Guerra Rusia - Ucrania, en directo: últimas noticias del conflicto",
+    image: "/war.webp",
+    time: "hace 9 horas",
+  },
+];
 ---
 
-<section class="grid grid-cols-1 md:grid-cols-3 w-full gap-y-3 md:gap-x-6">
+<section class="grid grid-cols-1 lg:grid-cols-3 w-full gap-y-3 lg:gap-x-6">
   <div class="rounded-lg bg-neutral-100 text-black h-40 p-3 md:order-last">
     <h1>Bing Chat</h1>
   </div>
   <div class="flex flex-col gap-3 col-span-2">
-    <div class="flex flex-row items-center justify-between">
-      {
-        CATEGORIES.map(({ name, image }) => (
-          <div class="w-1/6 relative hover:scale-90 transition cursor-pointer">
-            <span class="rounded-b absolute bottom-0 text-center bg-black/60 w-full uppercase text-xs md:text-sm font-semibold py-0.5">
-              {name}
-            </span>
-            <img
-              class="rounded object-cover aspect-video"
-              loading="lazy"
-              src={image}
-              alt={`Imagen para la categoría ${name}`}
-            />
-          </div>
-        ))
-      }
+    <div class="flex items-center justify-between">
+      {CATEGORIES.map((categorie) => <Categorie categorie={categorie} />)}
     </div>
     <div class="rounded-lg bg-neutral-100 p-3">
       <h1
@@ -66,11 +54,7 @@ const NEWS = [
       >
         Noticias recientes
       </h1>
-      {
-        NEWS.map((data) => (
-            <New data={data} />
-        ))
-      }
+      {NEWS.map((data) => <New data={data} />)}
     </div>
   </div>
 </section>

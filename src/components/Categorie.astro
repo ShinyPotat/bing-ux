@@ -1,0 +1,17 @@
+---
+const { name, image } = Astro.props.categorie;
+---
+
+<div class="rounded w-1/6 relative cursor-pointer group inline-block overflow-hidden">
+  <img
+    class="object-cover aspect-video group-hover:scale-110 transition"
+    loading="lazy"
+    src={image}
+    alt={`Imagen para la categoría ${name}`}
+  />
+  <span
+    class="rounded-b absolute bottom-0 text-center bg-black/60 w-full uppercase text-xs md:text-sm font-semibold py-0.5"
+  >
+    {name}
+  </span>
+</div>
