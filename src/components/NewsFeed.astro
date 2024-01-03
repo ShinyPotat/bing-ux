@@ -1,0 +1,55 @@
+---
+import Categorie from "./Categorie.astro";
+import New from "./New.astro";
+
+const CATEGORIES = [
+  {
+    name: "Noticias",
+    image: "/news.webp",
+  },
+  {
+    name: "Diversión",
+    image: "/fun.webp",
+  },
+  {
+    name: "Vida",
+    image: "/life.webp",
+  },
+  {
+    name: "Gaming",
+    image: "/gaming.webp",
+  },
+  {
+    name: "Salud",
+    image: "/health.webp",
+  },
+];
+
+const NEWS = [
+  {
+    title:
+      "Camino a un planeta mejor: las buenas noticias sobre medio ambiente de 2023",
+    image: "/forest.webp",
+    time: "hace 8 horas",
+  },
+  {
+    title: "Guerra Rusia - Ucrania, en directo: últimas noticias del conflicto",
+    image: "/war.webp",
+    time: "hace 9 horas",
+  },
+];
+---
+
+<div class="flex flex-col gap-3 col-span-2">
+  <div class="flex items-center justify-between">
+    {CATEGORIES.map((categorie) => <Categorie categorie={categorie} />)}
+  </div>
+  <div class="rounded-lg bg-neutral-100 p-3">
+    <h1
+      class="text-2xl border-b-4 text-emerald-600 border-emerald-600 font-semibold"
+    >
+      Noticias recientes
+    </h1>
+    {NEWS.map((data) => <New data={data} />)}
+  </div>
+</div>

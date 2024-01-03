@@ -1,0 +1,30 @@
+---
+import ChatBing from "../icons/ChatBing.astro";
+import Bing from "../icons/Bing.astro";
+import Microphone from "../icons/Microphone.astro";
+---
+
+<div class="rounded-lg bg-neutral-100 text-black h-fit p-3 lg:order-last">
+  <h1 class="flex items-center gap-2 text-2xl font-semibold text-sky-700 mb-3">
+    <ChatBing class="size-10 fill-transparent" />
+    Bing Chat
+  </h1>
+  <div class="flex flex-col items-center px-5">
+    <Bing class="size-12 mb-4" />
+    <h2 class="text-xl font-semibold mb-5">Bienvenido al nuevo Bing</h2>
+    <p class="text-center mb-3">
+      Usa el poder de la IA para encontrar respuestas en la web, crea contenido
+      escrito, y más.
+    </p>
+  </div>
+  <div class="flex items-center justify-between gap-2">
+    <input
+      type="text"
+      placeholder="Pregúntame algo..."
+      class="rounded-full border-2 border-sky-700 indent-2 w-full p-2"
+    />
+    <div class="p-3 bg-sky-700 rounded-full cursor-pointer hover:scale-110">
+      <Microphone class="size-5 text-white" />
+    </div>
+  </div>
+</div>
