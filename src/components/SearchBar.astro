@@ -6,10 +6,11 @@ const { search, options } = Astro.props;
 ---
 
 <div class={`${Astro.props.class} flex flex-col`}>
-  <form method="post" class="relative flex justify-end items-center">
+  <form method="post" action="/search" class="relative flex justify-end items-center">
     <Search class="pointer-events-none absolute size-5 text-teal-900 right-3" />
     <input
       type="text"
+      id="search"
       name="search"
       required
       value={search}

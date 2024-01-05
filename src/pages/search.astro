@@ -3,7 +3,13 @@ import SearchBar from "../components/SearchBar.astro";
 import Layout from "../layouts/Layout.astro";
 import BingWhite from "../icons/BingWhite.astro";
 
-const search = Astro.url.searchParams.get("q")! || "";
+var search = '';
+
+if (Astro.request.method === 'POST') {
+  const data = await Astro.request.formData();
+  search = data.get("search")?.toString() || "";
+}
+
 const options = ["Chat", "Imágenes", "Videos", "Noticias"];
 ---
 
@@ -12,7 +18,7 @@ const options = ["Chat", "Imágenes", "Videos", "Noticias"];
     <section class="w-full">
       <div class="flex">
         <BingWhite class="size-9" />
-        <SearchBar options={options} />
+        <SearchBar options={options} search={search} />
       </div>
     </section>
   </main>
