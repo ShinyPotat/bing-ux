@@ -41,7 +41,7 @@ const NEWS = [
 ---
 
 <div class="flex flex-col gap-3 col-span-2">
-  <div class="flex items-center justify-between">
+  <div class="flex items-center md:justify-between gap-x-4 flex-nowrap overflow-x-auto scroll-smooth py-2 md:py-0">
     {CATEGORIES.map((categorie) => <Categorie categorie={categorie} />)}
   </div>
   <div class="rounded-lg bg-neutral-100 p-3">
