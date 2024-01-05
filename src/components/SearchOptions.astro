@@ -1,0 +1,12 @@
+---
+import SearchOption from "./SearchOption.astro";
+
+const { options } = Astro.props;
+---
+
+<ul
+  class="flex items-center justify-around gap-x-3 mt-3 md:gap-x-10 text-xs md:text-base"
+>
+  <SearchOption class="border-b-2">Todo</SearchOption>
+  {options.map((option: string) => <SearchOption>{option}</SearchOption>)}
+</ul>

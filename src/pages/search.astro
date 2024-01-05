@@ -1,0 +1,19 @@
+---
+import SearchBar from "../components/SearchBar.astro";
+import Layout from "../layouts/Layout.astro";
+import BingWhite from "../icons/BingWhite.astro";
+
+const search = Astro.url.searchParams.get("q")! || "";
+const options = ["Chat", "Imágenes", "Videos", "Noticias"];
+---
+
+<Layout title="Microsoft Bing">
+  <main class="w-full px-4">
+    <section class="w-full">
+      <div class="flex">
+        <BingWhite class="size-9" />
+        <SearchBar options={options} />
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -2,6 +2,12 @@
 import SearchSection from "../components/SearchSection.astro";
 import Layout from "../layouts/Layout.astro";
 import SearchBottom from "../components/SearchBottom.astro";
+
+if (Astro.request.method === "POST") {
+  const data = await Astro.request.formData();
+  const search = data.get("search");
+  return Astro.redirect('/search?q=' + search?.toString());
+}
 ---
 
 <Layout title="Microsoft Bing">
