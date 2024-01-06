@@ -1,0 +1,68 @@
+---
+import Wikipedia from "../icons/Wikipedia.astro";
+
+const result = {
+  title: "Wikipedia",
+  link: "https://es.wikipedia.org/wiki/Wikipedia:Portada",
+};
+
+const logos = [
+  { name: "Web Oficial", shortname: "web" },
+  { name: "Wikipedia", shortname: "wiki" },
+  { name: "Twitter", shortname: "twitter" },
+  { name: "Facebook", shortname: "facebook" },
+  { name: "LinkedIn", shortname: "linkedin" },
+];
+---
+
+<section class="hidden lg:block bg-white shadow-lg w-3/5 py-4 px-6 h-fit">
+  <a href={result.link}>
+    <h2
+      class="text-teal-800 font-semibold text-2xl decoration-teal-800 hover:underline"
+    >
+      {result.title}
+    </h2>
+    <span class="text-green-500 text-xs">{result.link}</span>
+  </a>
+  <div class="mt-2 mb-4">
+    <Wikipedia class="grayscale brightness-150 contrast-100 float-left mr-2" />
+    <p class="text-stone-900 mb-2 text-pretty">
+      La Wikipedia en español es la edición en español o castellano de
+      Wikipedia. Al igual que las versiones existentes de Wikipedia en otros
+      idiomas, es una enciclopedia de contenido libre, publicada en Internet
+      bajo las licencias libres CC BY-SA 4.0 y GFDL. En la actualidad cuenta con
+      1 918 953 artículos, y es escrita por usuarios voluntarios, es decir, que
+      cualquiera puede editar un artículo, corregirlo o ampliarlo.
+    </p>
+    <p class="text-stone-900 mb-2 text-pretty">
+      Comenzó el 20 de mayo de 2001, cuatro meses después de lanzarse la edición
+      original en inglés y tras el anuncio de Jimmy Wales de internacionalizar
+      el proyecto. En octubre de 2016, Wikipedia en español era la segunda
+      Wikipedia con más visitas (con 579 millones de consultas por mes) después
+      de Wikipedia en inglés (que tenía 4211 millones) y por delante de
+      Wikipedia en ruso (562 millones) y en alemán (con 533 millones). Esto
+      señala que la edición en castellano es muy consultada, incluso más que
+      algunas versiones en otros idiomas que tienen mayor cantidad de artículos.
+    </p>
+  </div>
+  <div class="flex items-center justify-evenly mb-2">
+    {
+      logos.map(({name, shortname}) => {
+        return (
+          <div class="w-full flex flex-col items-center cursor-pointer">
+            <img src={`/${shortname}.webp`} alt={name} class="size-8" />
+            <span class="text-emerald-500">{name}</span>
+          </div>
+        );
+      })
+    }
+  </div>
+  <ul>
+    <li class="text-stone-900">Fundadores: <span class="cursor-pointer text-emerald-500">Phil Knight, Bill Bowerman</span></li>
+    <li class="text-stone-900">Director Ejecutivo: <span class="cursor-pointer text-emerald-500">John Donaohw (13 ene 2020-)</span></li>
+    <li class="text-stone-900">Filiales: <span class="cursor-pointer text-emerald-500">Converse, NIKE Philippines Inc, Nike Thailand, Nike UK...</span></li>
+    <li class="text-stone-900">Oficinas Centrales: <span class="cursor-pointer text-emerald-500">Beaverton, Oregón, Estados Unidos</span></li>
+    <li class="text-stone-900">Presidente: <span class="cursor-pointer text-emerald-500">John Donahoe</span></li>
+    <li class="text-stone-900">Fundación: <span class="cursor-pointer text-emerald-500">25 de enero de 1964, Eugene, Oregón, Estados Unidos</span></li>
+  </ul>
+</section>
