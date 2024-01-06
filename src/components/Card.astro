@@ -1,0 +1,10 @@
+---
+const { title, image } = Astro.props;
+---
+
+<div class="w-1/4 max-w-sm shadow-lg bg-white cursor-pointer">
+<img src={image} alt={title} class="w-full h-[250px] max-h-40 lg:max-h-full object-cover">
+<div class="p-4">
+  <a href="#" class="text-xl font-semibold text-teal-700 hover:underline">{title}</a>
+</div>
+</div>

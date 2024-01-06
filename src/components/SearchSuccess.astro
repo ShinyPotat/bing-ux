@@ -1,0 +1,96 @@
+---
+import Card from "./Card.astro";
+import SearchResult from "./SearchResult.astro";
+import SearchResultHeader from "./SearchResultHeader.astro";
+
+const mainResult = {
+  title: "Wikipedia",
+  description:
+    "Tras varios cambios, la última formación hasta su separación la integró únicamente Brendon Urie (vocalista y multinstrumentista). Sus materiales discográficos ...",
+  link: "https://es.wikipedia.org/wiki/Wikipedia:Portada",
+  sublinks: [
+    {
+      title: "Wikipedia:Bienvenidos",
+      description:
+        "Español - Contenido libre - Enciclopédica - 20 de mayo - ...",
+    },
+    {
+      title: "Portal:Actualidad",
+      description:
+        "Portal:Actualidad · Guerra Israel-Gaza · Invasión rusa de Ucrania ...",
+    },
+    {
+      title: "Acerca de",
+      description: "«Wikipedia», sus lemas y sus logotipos son marcas ...",
+    },
+    {
+      title: "Ayuda:Introducción",
+      description:
+        "Política de protección - Editor Visual - Wikitexto - Ayuda:Edición",
+    },
+  ],
+  images: [
+    {
+      title: "Denis Diderit",
+      image: "/denis.webp",
+    },
+    {
+      title: "Rafael Nadal",
+      image: "/nadal.webp",
+    },
+    {
+      title: "Descubrimiento de América",
+      image: "/colon.webp",
+    },
+  ],
+};
+
+const results = [
+  {
+    title: "Wikipedia, la enciclopedia libre",
+    description:
+      "Wikipedia · Es una enciclopedia, entendida como soporte que permite la recopilación, el almacenamiento y la transmisión de la información de forma estructurada.",
+    link: "https://es.wikipedia.org/wiki/Wikipedia",
+  },
+  {
+    title: "Wikipedia",
+    description:
+      "Wikipedia is a free online encyclopedia, created and edited by volunteers around the world and hosted by the Wikimedia Foundation.",
+    link: "https://es.wikipedia.org",
+  },
+];
+---
+
+<section
+  data-search-result
+  class={`${Astro.props.class} w-full bg-white text-zinc-600/75 p-4 rounded-b-lg`}
+>
+  <SearchResultHeader />
+  <div class="flex flex-col gap-y-2 max-w-6xl">
+    <SearchResult result={mainResult}>
+      <div class="hidden md:grid grid-cols-2 gap-3 p-6">
+        {
+          mainResult.sublinks.map(({ title, description }) => {
+            return (
+              <div class="max-w-sm">
+                <a
+                  href="#"
+                  class="text-teal-800 font-semibold text-xl decoration-teal-800 hover:underline"
+                >
+                  {title}
+                </a>
+                <p class="text-pretty">{description}</p>
+              </div>
+            );
+          })
+        }
+      </div>
+      <div class="hidden md:flex justify-center gap-3">
+        {
+          mainResult.images.map(({ title, image }) => <Card title={title} image={image} />)
+        }
+      </div>
+    </SearchResult>
+    {results.map((result) => <SearchResult result={result} />)}
+  </div>
+</section>
